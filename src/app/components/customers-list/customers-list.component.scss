@@ -1,0 +1,35 @@
+// `md` applies to small devices (landscape phones, less than 768px)
+table{
+    tbody{
+        tr{
+            th, td{
+                .column_title{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+// `md` applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { 
+    table{
+        thead{
+            display: none;
+        }
+        tbody{
+            display: block;
+            tr{
+                display: flex;
+                flex-direction: column;
+                th, td{
+                    border: 0;
+                    .column_title{
+                        font-weight: 600;
+                        margin-right: .5rem;
+                        display: inline;
+                    }
+                }
+            }
+        }
+    }
+ }
