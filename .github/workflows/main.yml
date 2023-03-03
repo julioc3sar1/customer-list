@@ -1,0 +1,25 @@
+name: ci cd
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  ci_cd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: install dependencies
+        run: npm install
+      - name: tests
+        run: npm test
+      - name: build
+        run: npm run build
+      - name: deploy
+        run: |
+          npm install -g netlify-cli --force
+          netlify deploy --auth=${{ secrets.netlify_auth_token }} --dir dist/angular-ci-cd --site=${{secrets.netlify_site_id}} --prod
