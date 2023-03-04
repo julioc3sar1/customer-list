@@ -4,3 +4,6 @@ body{
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
 }
+.form-control:focus{
+    box-shadow: unset;
+}
