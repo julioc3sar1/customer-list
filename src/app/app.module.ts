@@ -17,6 +17,7 @@ import { searchReducer } from './state/reducers/search.reducer';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostsListComponent } from './components/posts-list/posts-list.component';
 import { PostDialogComponent } from './components/post-dialog/post-dialog.component';
+import { responseReducer } from './state/reducers/apiResponses.reducer';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PostDialogComponent } from './components/post-dialog/post-dialog.compon
     StoreModule.forRoot({
       posts: postsReducer,
       sortBy: sortingReducer,
-      search: searchReducer
+      search: searchReducer,
+      apiResponse: responseReducer
     }, {
 
     }),

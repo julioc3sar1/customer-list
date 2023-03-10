@@ -1,11 +1,14 @@
 import { createSelector, createFeatureSelector } from "@ngrx/store";
 import { Post } from "src/app/models/posts.model";
+import { ApiReponse } from "src/app/models/response.model";
 
 export const selectPosts = createFeatureSelector<Array<Post>>('posts')
 
 export const selectSortBy = createFeatureSelector<Readonly<string>>('sortBy')
 
 export const selectSearch = createFeatureSelector<Readonly<string>>('search')
+
+export const selectApiResponse = createFeatureSelector<Readonly<ApiReponse>>('apiResponse')
 
 export const selectFilteredPosts = createSelector(
     selectPosts,
@@ -34,4 +37,3 @@ export const selectOrderedPosts = createSelector(
         });
     }
 )
-

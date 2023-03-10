@@ -23,19 +23,27 @@ export class PostsService {
         return posts
     }
 
-    addPost(post: Post): Observable<Boolean> {
+    addPost(post: Post): Observable<Post> {
         const posts = [...this.getLsPosts(), ...[post]]
-        this.setLsPosts(posts)
-        return new Observable<Boolean>((subscriber) => {
-            subscriber.next(true)
+        return new Observable<Post>((subscriber) => {
+            try {
+                this.setLsPosts(posts)
+                subscriber.next(post)
+            } catch (err) {
+                subscriber.error('Something happened')
+            }
         })
     }
 
-    editPost(editedPost: Post): Observable<Boolean> {
+    editPost(editedPost: Post): Observable<Post> {
         const posts = this.getLsPosts().map((post: Post) => editedPost.id === post.id ? { ...post, ...editedPost } : post)
-        this.setLsPosts(posts)
-        return new Observable<Boolean>((subscriber) => {
-            subscriber.next(true)
+        return new Observable<Post>((subscriber) => {
+            try {
+                this.setLsPosts(posts)
+                subscriber.next(editedPost)
+            } catch (err) {
+                subscriber.error('Something happened')
+            }
         })
     }
 

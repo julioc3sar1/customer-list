@@ -47,8 +47,8 @@
                     </div>
                 </div>
             </form>
-            <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="visible">
-                Post created successfully!! You can add a new one or close this dialog and back to the main list.
+            <div class="alert alert-{{alert.type}} alert-dismissible fade show" role="alert" *ngIf="visible">
+              {{alert.msg}}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>
