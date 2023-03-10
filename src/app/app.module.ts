@@ -6,25 +6,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { CustomersComponent } from './components/customers/customers.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { CustomersListComponent } from './components/customers-list/customers-list.component';
 
-import { customersReducer } from './state/reducers/customers.reducer';
+import { postsReducer } from './state/reducers/posts.reducer';
 import { sortingReducer } from './state/reducers/sorting.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
-import { MovieEffects } from './state/effects/customers.effects';
-import { CustomerDialogComponent } from './components/customer-dialog/customer-dialog.component';
+import { PostsEffects } from './state/effects/posts.effects';
 import { searchReducer } from './state/reducers/search.reducer';
+import { PostsComponent } from './components/posts/posts.component';
+import { PostsListComponent } from './components/posts-list/posts-list.component';
+import { PostDialogComponent } from './components/post-dialog/post-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersComponent,
     NavigationComponent,
-    CustomersListComponent,
-    CustomerDialogComponent
+    PostsComponent,
+    PostsListComponent,
+    PostDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +33,7 @@ import { searchReducer } from './state/reducers/search.reducer';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({
-      customers: customersReducer,
+      posts: postsReducer,
       sortBy: sortingReducer,
       search: searchReducer
     }, {
@@ -41,7 +41,7 @@ import { searchReducer } from './state/reducers/search.reducer';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([
-      MovieEffects
+      PostsEffects
     ])
   ],
   providers: [],

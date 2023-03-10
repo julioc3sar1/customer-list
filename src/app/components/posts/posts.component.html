@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 my-3">
+            <div class="d-flex">
+                <div class="posts_sorting d-flex align-items-center">
+                    <span class="text-nowrap me-2">Sort by</span>
+                    <select class="form-select me-2" aria-label="Default select example" (change)="sortPosts($event)">
+                        <!-- <option selected>Sort by</option> -->
+                        <option value="title">Title</option>
+                        <option value="status">Status</option>
+                    </select>
+                </div>
+
+                <div class="d-flex ms-auto" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" (input)="searchPost($event)">
+                </div>
+
+                <div class="posts_btn">
+                    <button type="button" class="btn btn-primary add_post_btn" data-bs-toggle="modal" data-bs-target="#postModal"><i class="bi bi-person-plus me-md-2"></i><span class="d-none d-md-inline">New post</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <app-posts-list 
+            [posts]="(posts$ | async)"
+            (editPost)="post = $event"
+            >
+            </app-posts-list>
+        </div>
+    </div>
+</div>
+
+<app-post-dialog [post]="post" (close)="post=undefined"></app-post-dialog>
+<!-- Modal -->

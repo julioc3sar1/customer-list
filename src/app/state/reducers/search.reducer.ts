@@ -1,10 +1,9 @@
 import { createReducer, on } from "@ngrx/store";
-import { CustomersActions, CustomersApiActions } from "../actions/customers.actions";
-// import { Customer } from "src/app/models/customers.model";
+import { PostsActions } from "../actions/posts.actions";
 
 export const initialState: string = ''
 
 export const searchReducer = createReducer(
     initialState,
-    on(CustomersActions.searchCustomer, (_state, { search }) => search),
+    on(PostsActions.searchPost, (_state, { search }) => search),
 )

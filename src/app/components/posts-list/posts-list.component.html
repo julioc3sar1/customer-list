@@ -1,0 +1,48 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Status</th>
+              <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="posts && posts.length>0; else noPosts">
+            <tr *ngFor="let post of posts">
+              <td>
+                <span class="column_title">
+                  Title:
+                </span>
+                {{post.title}}
+              </td>
+              <td>
+                <span class="column_title">
+                  Description:
+                </span>
+                {{post.description}}
+              </td>
+              <td>
+                <span class="column_title">
+                  Status:
+                </span>
+                <span class="badge text-bg-success" *ngIf="post.status==='active'">Active</span>
+                <span class="badge text-bg-danger" *ngIf="post.status==='inactive'">Inactive</span>
+                <span class="badge text-bg-warning" *ngIf="post.status==='pending'">Pending</span>
+                <!-- {{post.status}} -->
+              </td>
+              <td>
+                <button class="btn" (click)="onEdit(post)"><i class="bi bi-pencil-square"></i></button>
+                <button class="btn" (click)="onDelete(post.id)"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+        </tbody>
+        <ng-template #noPosts>
+          <tbody>
+            <tr>
+              <td colspan="4" class="text-center">No Posts</td>
+            </tr>
+          </tbody>
+        </ng-template>
+    </table>
+</div>

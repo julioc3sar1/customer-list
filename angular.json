@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "customer-list": {
+    "post-list": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/customer-list",
+            "outputPath": "dist/post-list",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "customer-list:build:production"
+              "browserTarget": "post-list:build:production"
             },
             "development": {
-              "browserTarget": "customer-list:build:development"
+              "browserTarget": "post-list:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "customer-list:build"
+            "browserTarget": "post-list:build"
           }
         },
         "test": {

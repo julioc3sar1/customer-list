@@ -1,10 +1,9 @@
 import { createReducer, on } from "@ngrx/store";
-import { CustomersApiActions } from "../actions/customers.actions";
-import { Customer } from "src/app/models/customers.model";
+import { PostsActions } from "../actions/posts.actions";
 
 export const initialState: string = ''
 
 export const sortingReducer = createReducer(
     initialState,
-    on(CustomersApiActions.sortCustomers, (_state, { column }) => column),
+    on(PostsActions.sortPosts, (_state, { column }) => column),
 )
